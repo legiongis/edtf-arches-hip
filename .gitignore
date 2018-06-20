@@ -5,7 +5,7 @@
 *.pot
 *.pyc
 __pycache__/
-local_settings.py
+settings_local.py
 db.sqlite3
 static/
 logs/*
@@ -65,7 +65,6 @@ coverage.xml
 # Django stuff:
 *.log
 local_settings.py
-settings.py
 
 # Flask instance folder
 instance/
