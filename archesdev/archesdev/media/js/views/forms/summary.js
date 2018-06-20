@@ -3,8 +3,10 @@ define(['jquery',
     'knockout-mapping', 
     'views/forms/base', 
     'views/forms/sections/branch-list',
+    'views/forms/sections/validation',
     'bootstrap-datetimepicker',], 
-    function ($, _, koMapping, BaseForm, BranchList, async) {
+    function ($, _, koMapping, BaseForm, BranchList, ValidationTools, async) {
+        vt = new ValidationTools();
         return BaseForm.extend({
             initialize: function() {
                 BaseForm.prototype.initialize.apply(this);                
@@ -77,8 +79,8 @@ define(['jquery',
                     data: this.data,
                     dataKey: 'important_dates',
                     validateBranch: function (nodes) {                                  					    
-					   return this.validateEdtfy(nodes);   
-		            }
+                       return vt.validateEdtfy(nodes);   
+                    }
                 }));
 
                 this.addBranchList(new BranchList({

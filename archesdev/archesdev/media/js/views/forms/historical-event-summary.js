@@ -1,4 +1,10 @@
-define(['jquery', 'views/forms/base', 'views/forms/sections/branch-list', ], function ($, BaseForm, BranchList) {
+define([
+    'jquery',
+    'views/forms/base',
+    'views/forms/sections/branch-list',
+    'views/forms/sections/validation',
+    ], function ($, BaseForm, BranchList, ValidationTools) {
+        vt = new ValidationTools()
         return BaseForm.extend({
             initialize: function() {
                 BaseForm.prototype.initialize.apply(this);                
@@ -44,7 +50,7 @@ define(['jquery', 'views/forms/base', 'views/forms/sections/branch-list', ], fun
                     data: this.data,
                     dataKey: 'BEGINNING_OF_EXISTENCE.E63',
                     validateBranch: function (nodes) {
-					    return this.validateEdtfy(nodes);   
+                        return vt.validateEdtfy(nodes);   
                     }
                 }));
 
@@ -53,7 +59,7 @@ define(['jquery', 'views/forms/base', 'views/forms/sections/branch-list', ], fun
                     data: this.data,
                     dataKey: 'END_OF_EXISTENCE.E64',
                     validateBranch: function (nodes) {
-					    return this.validateEdtfy(nodes);   
+					    return vt.validateEdtfy(nodes);   
                     }
                 }));
 
@@ -67,6 +73,7 @@ define(['jquery', 'views/forms/base', 'views/forms/sections/branch-list', ], fun
                 }));
             }
         });
-});
+    }
+);
 
 
