@@ -50,6 +50,8 @@ MAP_MIN_ZOOM = 1
 MAP_MAX_ZOOM = 20
 MAP_EXTENT = '2616008,2154396,4285800,3829124'
 
+RESOURCE_MODEL = {'default':'{}.models.resource.Resource'.format(PACKAGE_NAME)}
+
 def RESOURCE_TYPE_CONFIGS():
     return {
         'HERITAGE_RESOURCE.E18': {
