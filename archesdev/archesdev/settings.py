@@ -9,7 +9,7 @@ ALLOWED_HOSTS = ["*"]
 
 PACKAGE_ROOT = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 PACKAGE_NAME = PACKAGE_ROOT.split(os.sep)[-1]
-APP_NAME = 'etdf'
+APP_NAME = 'edtf | Arches-HIP'
 
 DATABASES = {
     'default': {
@@ -184,8 +184,6 @@ BUSISNESS_DATA_FILES = (
     # Don't forget to use absolute paths, not relative paths.
     # os.path.normpath(os.path.join(PACKAGE_ROOT, 'source_data', 'business_data', 'sample.arches')),
 )
-
-
 
 LOGGING = {
     'version': 1,
