@@ -21,12 +21,9 @@ from arches.app.models.edit_history import EditHistory
 from arches.app.models.resource import Resource as ArchesResource
 from arches.app.search.search_engine_factory import SearchEngineFactory
 from arches.app.utils.betterJSONSerializer import JSONSerializer, JSONDeserializer
-#from arches_hip.models import forms
 from arches.app.models.forms import DeleteResourceForm
 from django.utils.translation import ugettext as _
-
-#import local forms model
-import forms
+from . import forms
 
 class Resource(ArchesResource):
     def __init__(self, *args, **kwargs):
