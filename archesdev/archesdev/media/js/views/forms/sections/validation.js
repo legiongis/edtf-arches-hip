@@ -5,8 +5,7 @@ define([
     'arches',
     'edtfy',
     'moment',
-    'bootbox',
-    ], function ($, Backbone, _, arches, edtfy, moment, bootbox) {
+    ], function ($, Backbone, _, arches, edtfy, moment) {
     edtfy.locale('en')
     return Backbone.View.extend({
         
@@ -31,7 +30,7 @@ define([
                 if (node.entitytypeid != node_name) { return };
 
                 if (node.value.length != node.value.trim().length) {
-                    bootbox.alert('Please check for spaces before or after your date.');
+                    $("#edtf-date-alert").text("Please check for spaces before or after your date.");
                     valid = false;
                     return;
                 }
@@ -70,7 +69,7 @@ define([
                         } 								
                     } else {
                         /* user used a recognizable invalid format, suggest edit */
-                        bootbox.alert('Try entering this instead: ' + parsed);
+                        $("#edtf-date-alert").text('Try entering this instead: ' + parsed);
                         valid = false;
                     }
                 }
@@ -113,7 +112,7 @@ define([
                         if (entityid == 'E49') {			
                             /* check for leading or trailing white spaces */
                             if (node.value.length != node.value.trim().length) {
-                                bootbox.alert('Please check for spaces before or after your date.');
+                                $("#edtf-date-alert").text('Please check for spaces before or after your date.')
                                 valid = false;
                             } else {						
                                 /* use moment.js to check for a correct date format first */
@@ -140,7 +139,7 @@ define([
                                             } 								
                                         } else {
                                             /* user used a recognizable invalid format, suggest edit */
-                                            bootbox.alert('Try entering this instead: ' + parsed);
+                                            $("#edtf-date-alert").text('Try entering this instead: ' + parsed);
                                             valid = false;
                                         }
                                     }
