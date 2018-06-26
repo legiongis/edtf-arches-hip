@@ -7,7 +7,7 @@ define(['jquery',
     'bootstrap-datetimepicker',
     'summernote'
     ], function ($, _, ko, WizardBase, BranchList, ValidationTools, datetimepicker, summernote) {
-        vt = new ValidationTools()
+        var vt = new ValidationTools()
         return WizardBase.extend({
             initialize: function() {
                 WizardBase.prototype.initialize.apply(this);

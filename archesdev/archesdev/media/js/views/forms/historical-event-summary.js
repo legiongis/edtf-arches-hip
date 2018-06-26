@@ -4,7 +4,7 @@ define([
     'views/forms/sections/branch-list',
     'views/forms/sections/validation',
     ], function ($, BaseForm, BranchList, ValidationTools) {
-        vt = new ValidationTools()
+        var vt = new ValidationTools()
         return BaseForm.extend({
             initialize: function() {
                 BaseForm.prototype.initialize.apply(this);                
@@ -50,7 +50,9 @@ define([
                     data: this.data,
                     dataKey: 'BEGINNING_OF_EXISTENCE.E63',
                     validateBranch: function (nodes) {
-                        return vt.validateEdtfy(nodes);   
+                        var ck0 = this.validateHasValues(nodes);
+                        var ck1 = vt.validateDateEdtfy(nodes,'START_DATE_OF_EXISTENCE.E49');
+                        return ck0 && ck1
                     }
                 }));
 
@@ -59,7 +61,9 @@ define([
                     data: this.data,
                     dataKey: 'END_OF_EXISTENCE.E64',
                     validateBranch: function (nodes) {
-					    return vt.validateEdtfy(nodes);   
+                        var ck0 = this.validateHasValues(nodes);
+                        var ck1 = vt.validateDateEdtfy(nodes,'END_DATE_OF_EXISTENCE.E49');
+                        return ck0 && ck1
                     }
                 }));
 

@@ -8,11 +8,12 @@ define(['jquery',
     'knockout-mapping', 
     'plugins/bootstrap-slider/bootstrap-slider.min',
     'views/forms/sections/branch-list',
+    'views/forms/sections/validation',
     'resource-types',
     'bootstrap-datetimepicker',
     'plugins/knockout-select2'], 
-    function($, _, Backbone, bootstrap, arches, select2, ko, koMapping, Slider, BranchList, resourceTypes) {
-
+    function($, _, Backbone, bootstrap, arches, select2, ko, koMapping, Slider, BranchList, ValidationTools, resourceTypes) {
+        var vt = new ValidationTools()
         return Backbone.View.extend({
 
             initialize: function(options) { 
@@ -99,7 +100,9 @@ define(['jquery',
                     data: this.viewModel,
                     dataKey: 'important_dates',
                     validateBranch: function (nodes) {
-                        return this.validateHasValues(nodes);;
+                        var ck0 = this.validateHasValues(nodes);
+                        var ck1 = vt.validateDateEdtfy(nodes,'date');
+                        return ck0 && ck1;
                     }
                 });
 

@@ -6,7 +6,7 @@ define(['jquery',
     'views/forms/sections/validation',
     'bootstrap-datetimepicker',], 
     function ($, _, koMapping, BaseForm, BranchList, ValidationTools, async) {
-        vt = new ValidationTools();
+        var vt = new ValidationTools();
         return BaseForm.extend({
             initialize: function() {
                 BaseForm.prototype.initialize.apply(this);                
@@ -78,8 +78,10 @@ define(['jquery',
                     el: this.$el.find('#dates-section')[0],
                     data: this.data,
                     dataKey: 'important_dates',
-                    validateBranch: function (nodes) {                                  					    
-                       return vt.validateEdtfy(nodes);   
+                    validateBranch: function (nodes) {
+                        var ck0 = vt.validateDateEdtfy(nodes,"START_DATE_OF_EXISTENCE.E49,END_DATE_OF_EXISTENCE.E49");
+                        var ck1 = this.validateHasValues(nodes);
+                        return ck0 && ck1
                     }
                 }));
 
