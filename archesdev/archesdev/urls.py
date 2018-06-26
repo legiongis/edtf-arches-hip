@@ -18,10 +18,12 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 from arches_hip import urls as arches_hip_urls
 from django.conf.urls import patterns, url, include
+from .views import search
 
 uuid_regex = '[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}'
 
 urlpatterns = patterns('',
-    # url(r'^edtf/', include('edtf.urls', namespace='edtf')),
+    url(r'^search$', search.home_page, name="search_home"),
+    url(r'^search/resources$', search.search_results, name="search_results"),
     url(r'', include(arches_hip_urls)),
 )
