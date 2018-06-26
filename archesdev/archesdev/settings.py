@@ -52,6 +52,23 @@ MAP_EXTENT = '2616008,2154396,4285800,3829124'
 
 RESOURCE_MODEL = {'default':'{}.models.resource.Resource'.format(PACKAGE_NAME)}
 
+EXTENDED_DATE_NODES = [
+    "START_DATE_OF_EXISTENCE.E49",
+    "END_DATE_OF_EXISTENCE.E49"
+]
+
+## {mergenode: (date-node-value,date-type-node-value)}
+INDEXED_DATE_BRANCH_FORMATIONS = {
+    "BEGINNING_OF_EXISTENCE.E63": (
+        "START_DATE_OF_EXISTENCE_E49__value",
+        "BEGINNING_OF_EXISTENCE_TYPE_E55__value"
+    ),
+    "END_OF_EXISTENCE.E64": (
+        "END_DATE_OF_EXISTENCE_E49__value",
+        "END_OF_EXISTENCE_TYPE_E55__value"
+    )
+}
+
 def RESOURCE_TYPE_CONFIGS():
     return {
         'HERITAGE_RESOURCE.E18': {
