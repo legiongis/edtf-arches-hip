@@ -22,21 +22,21 @@ The legiongis fork has diverged significantly from the original coherit repo.
 2. create and activate python 2.7 virtual environment
 3. clone this repo and enter it
     
-    git clone https://github.com/legiongis/edtf-arches-hip
+        git clone https://github.com/legiongis/edtf-arches-hip
 
 4. install python requirements
     
-    cd edtf-arches-hip
-    pip install -r requirements.txt
+        cd edtf-arches-hip
+        pip install -r requirements.txt
 
 5. install the database (make sure elasticsearch is installed and running first)
 
-    cd archesdev
-    python manage.py packages -o install
+        cd archesdev
+        python manage.py packages -o install
     
 5. run the dev server to begin entering data and testing
 
-    python manage.py runserver
+        python manage.py runserver
 
 ## Synopsis
 
