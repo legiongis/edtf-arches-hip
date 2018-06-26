@@ -1,6 +1,43 @@
 # edtf-arches-hip
 Extended Date/Time Format for Arches Heritage Inventory Package
 
+## note - 6/26/2018
+
+The legiongis fork has diverged significantly from the original coherit repo.
+
++ arches-hip default source data (authority files and resource graphs) added
++ moment.js and edtfy.js are now included in the repo (no need to use bower to install them)
++ bootbox.js is no longer used
++ only the most basic edtf formats are supported: YYYY-MM-DD, YYYY-MM, and YYYY.
++ date ranges and intervals are not supported
++ BCE dates are supported, use "-" when entering a BCE date
++ extended dates are now indexed and searchable with the time-filter
++ two new settings are now required to guide the indexing.
++ flexidate is no longer used, edtf is used instead
++ it can be installed on top of arches 3.1.2 and arches-hip as a standalone app
+
+#### installation
+
+1. install all [arches v3 dependencies](https://arches.readthedocs.io/en/3.1.2/getting-started/#dependencies)
+2. create and activate python 2.7 virtual environment
+3. clone this repo and enter it
+    
+    git clone https://github.com/legiongis/edtf-arches-hip
+
+4. install python requirements
+    
+    cd edtf-arches-hip
+    pip install -r requirements.txt
+
+5. install the database (make sure elasticsearch is installed and running first)
+
+    cd archesdev
+    python manage.py packages -o install
+    
+5. run the dev server to begin entering data and testing
+
+    python manage.py runserver
+
 ## Synopsis
 
 This project demonstrates a method of supporting a wider range of dates in [Arches](https://github.com/archesproject/arches)/[Arches-HIP](https://github.com/archesproject/hip) fields based on the [Library of Congress' Extended Date/Time Format 1.0](http://www.loc.gov/standards/datetime/pre-submission.html) or EDTF. In addition to accepting valid EDTF entries, this feature also recognizes a wide-range of human inputs (e.g. December 12, 2004) and suggests the correct format for the user to enter (e.g. 2004-12-12).
