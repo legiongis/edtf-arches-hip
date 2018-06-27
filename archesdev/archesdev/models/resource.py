@@ -16,6 +16,7 @@ You should have received a copy of the GNU Affero General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 '''
 from django.conf import settings
+from django.contrib.gis.geos import fromstr
 import arches.app.models.models as archesmodels
 from arches.app.models.edit_history import EditHistory
 from arches.app.models.entity import Entity
